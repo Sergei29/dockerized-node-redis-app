@@ -1,7 +1,7 @@
 # verson of docker-compose we want to use
-version: '3'
+version: "3"
 
-# Here is what we want to do (services, eg, containers tro run)
+# Here is what we want to do (services, eg, containers to run)
 services:
   redis-server:
     image: redis
