@@ -6,6 +6,7 @@ services:
   redis-server:
     image: redis
   node-app-visits:
+    restart: on-failure
     # build image using Dockerfile, look into current direcory
     build: .
     ports:

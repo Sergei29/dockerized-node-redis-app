@@ -117,3 +117,38 @@ app.listen(PORT, () => {
 - `docker-compose up` - run the containers using previously built images ( specified in `docker-compose.yml`)
 - `docker-compose up -d` - run the containers on the background
 - `docker-compose down` - stop the containers
+- `docker-compose ps` - process status on docker-compose containers,
+  command to be run from the same location as our `docker-compose.yml`
+
+### Docker-compose automatic restarts
+
+For example - we're running 2 containers: `redis` and `node-app-visits`, then the `node-app-visits` crashes 💥(Boom!)
+What can we do here ?
+
+#### Automatic container restarts
+
+| Restart policy | Description                                                                   |
+| -------------- | ----------------------------------------------------------------------------- |
+| 'no'           | Never attempt to restart this. container if it stops or crashes (default)     |
+| always         | If this container stops for any reason - always attempt to restart it         |
+| on-failure     | Only restart this container if it stops with error code                       |
+| unless-stopped | Always restart the container, unless we(developers) have forcibly stopped it. |
+| -------------- | ----------------------------------------------------------------------------- |
+
+example: `docker-compose.yml`
+
+```yml
+# verson of docker-compose we want to use
+version: "3"
+
+# Here is what we want to do (services, eg, containers to run)
+services:
+  redis-server:
+    image: redis
+  node-app-visits:
+    restart: on-failure
+    # build image using Dockerfile, look into current direcory
+    build: .
+    ports:
+      -
+```
