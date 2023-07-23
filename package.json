@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.15.0",
+    "npm": ">=9.5.0",
+    "yarn": "NPM is the preferred package manager for this project",
+    "pnpm": "NPM is the preferred package manager for this project"
+  },
+  "engineStrict": true,
   "scripts": {
     "start": "node index.js"
   },
