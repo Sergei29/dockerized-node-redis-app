@@ -25,6 +25,7 @@
 - `docker build -t username/app-name .` - build the docker image from current directory and name it `username/app-name`
 - `docker run <image name>` - run docker container using an image
 - `docker run -p 3001:8081 username/app-name` - run application image `username/app-name` and map external request (browser) port `3001` to the container's port `8081`
+- `docker logs <container ID>` - read the container running logs
 
 #### To tun the cli or other command inside the running container:
 
@@ -114,4 +115,5 @@ app.listen(PORT, () => {
 
 - `docker-compose up --build` - build the images and run the containers ( specified in `docker-compose.yml`)
 - `docker-compose up` - run the containers using previously built images ( specified in `docker-compose.yml`)
+- `docker-compose up -d` - run the containers on the background
 - `docker-compose down` - stop the containers
