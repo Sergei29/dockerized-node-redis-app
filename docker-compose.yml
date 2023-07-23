@@ -1,0 +1,12 @@
+# verson of docker-compose we want to use
+version: '3'
+
+# Here is what we want to do (services, eg, containers tro run)
+services:
+  redis-server:
+    image: redis
+  node-app-visits:
+    # build image using Dockerfile, look into current direcory
+    build: .
+    ports:
+      - "8081:8081"
